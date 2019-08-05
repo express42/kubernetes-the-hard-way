@@ -114,16 +114,16 @@ for i in 0 1 2; do
 done
 ```
 
-### Kubernetes Workers
+### Kubernetes Worker
 
 Each worker instance requires a pod subnet allocation from the Kubernetes cluster CIDR range. The pod subnet allocation will be used to configure container networking in a later exercise. The `pod-cidr` instance metadata will be used to expose pod subnet allocations to compute instances at runtime.
 
 > The Kubernetes cluster CIDR range is defined by the Controller Manager's `--cluster-cidr` flag. In this tutorial the cluster CIDR range will be set to `10.200.0.0/16`, which supports 254 subnets.
 
-Create three compute instances which will host the Kubernetes worker nodes:
+Create one compute instance which will host the Kubernetes worker node:
 
 ```
-for i in 0 1 2; do
+for i in 0; do
   gcloud compute instances create worker-${i} \
     --async \
     --boot-disk-size 200GB \
@@ -155,8 +155,6 @@ controller-0  us-west1-c  n1-standard-1               10.240.0.10  XX.XXX.XXX.XX
 controller-1  us-west1-c  n1-standard-1               10.240.0.11  XX.XXX.X.XX     RUNNING
 controller-2  us-west1-c  n1-standard-1               10.240.0.12  XX.XXX.XXX.XX   RUNNING
 worker-0      us-west1-c  n1-standard-1               10.240.0.20  XXX.XXX.XXX.XX  RUNNING
-worker-1      us-west1-c  n1-standard-1               10.240.0.21  XX.XXX.XX.XXX   RUNNING
-worker-2      us-west1-c  n1-standard-1               10.240.0.22  XXX.XXX.XX.XX   RUNNING
 ```
 
 ## Configuring SSH Access

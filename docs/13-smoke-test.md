@@ -240,8 +240,8 @@ kubectl get pods -o wide
 ```
 ```
 NAME                       READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
-busybox-78c88d76df-gm8sm   1/1     Running   0          16m     10.200.2.5   worker-2   <none>           <none>
-nginx-7bb7cd8db5-vxhg8     1/1     Running   0          4m58s   10.200.2.6   worker-2   <none>           <none>
+busybox-78c88d76df-gm8sm   1/1     Running   0          16m     10.200.2.5   worker-0   <none>           <none>
+nginx-7bb7cd8db5-vxhg8     1/1     Running   0          4m58s   10.200.2.6   worker-0   <none>           <none>
 untrusted                  1/1     Running   0          4s      10.200.0.6   worker-0   <none>           <none>
 ```
 

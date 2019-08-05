@@ -25,7 +25,7 @@ When generating kubeconfig files for Kubelets the client certificate matching th
 Generate a kubeconfig file for each worker node:
 
 ```
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0; do
   kubectl config set-cluster kubernetes-the-hard-way \
     --certificate-authority=ca.pem \
     --embed-certs=true \
@@ -51,8 +51,6 @@ Results:
 
 ```
 worker-0.kubeconfig
-worker-1.kubeconfig
-worker-2.kubeconfig
 ```
 
 ### The kube-proxy Kubernetes Configuration File
@@ -193,10 +191,10 @@ admin.kubeconfig
 
 ## Distribute the Kubernetes Configuration Files
 
-Copy the appropriate `kubelet` and `kube-proxy` kubeconfig files to each worker instance:
+Copy the appropriate `kubelet` and `kube-proxy` kubeconfig files to worker instance:
 
 ```
-for instance in worker-0 worker-1 worker-2; do
+for instance in worker-0; do
   gcloud compute scp ${instance}.kubeconfig kube-proxy.kubeconfig ${instance}:~/
 done
 ```

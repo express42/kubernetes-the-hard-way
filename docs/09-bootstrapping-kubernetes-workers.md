@@ -1,10 +1,10 @@
 # Bootstrapping the Kubernetes Worker Nodes
 
-In this lab you will bootstrap three Kubernetes worker nodes. The following components will be installed on each node: [runc](https://github.com/opencontainers/runc), [gVisor](https://github.com/google/gvisor), [container networking plugins](https://github.com/containernetworking/cni), [containerd](https://github.com/containerd/containerd), [kubelet](https://kubernetes.io/docs/admin/kubelet), and [kube-proxy](https://kubernetes.io/docs/concepts/cluster-administration/proxies).
+In this lab you will bootstrap Kubernetes worker node. The following components will be installed on the node: [runc](https://github.com/opencontainers/runc), [gVisor](https://github.com/google/gvisor), [container networking plugins](https://github.com/containernetworking/cni), [containerd](https://github.com/containerd/containerd), [kubelet](https://kubernetes.io/docs/admin/kubelet), and [kube-proxy](https://kubernetes.io/docs/concepts/cluster-administration/proxies).
 
 ## Prerequisites
 
-The commands in this lab must be run on each worker instance: `worker-0`, `worker-1`, and `worker-2`. Login to each worker instance using the `gcloud` command. Example:
+The commands in this lab must be run on worker instance: `worker-0`. Login to worker instance using the `gcloud` command:
 
 ```
 gcloud compute ssh worker-0
@@ -279,7 +279,7 @@ EOF
 }
 ```
 
-> Remember to run the above commands on each worker node: `worker-0`, `worker-1`, and `worker-2`.
+> Remember to run the above commands on worker node: `worker-0`.
 
 ## Verification
 
@@ -297,8 +297,6 @@ gcloud compute ssh controller-0 \
 ```
 NAME       STATUS   ROLES    AGE   VERSION
 worker-0   Ready    <none>   35s   v1.15.0
-worker-1   Ready    <none>   36s   v1.15.0
-worker-2   Ready    <none>   36s   v1.15.0
 ```
 
 Next: [Configuring kubectl for Remote Access](10-configuring-kubectl.md)
